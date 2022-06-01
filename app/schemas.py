@@ -9,12 +9,12 @@ class Settings(BaseModel):
     authjwt_secret_key: str = "8febf52869498bb2ca8fe4f7e3a55e626b49ab75c97ad04bdb5617079443103d"
 
 
-# class PeweeGetterDict(GetterDict):
-#     def get(self, key: Any, default: Any = None):
-#         res = getattr(self._obj, key, default)
-#         if isinstance(res, peewee.ModelSelect):
-#             return list(res)
-#         return res
+class PeweeGetterDict(GetterDict):
+    def get(self, key: Any, default: Any = None):
+        res = getattr(self._obj, key, default)
+        if isinstance(res, peewee.ModelSelect):
+            return list(res)
+        return res
 
 
 class ReceiptBase(BaseModel):
@@ -34,7 +34,7 @@ class Receipt(ReceiptBase):
 
     class Config:
         orm_mode = True
-        # getter_dict = PeweeGetterDict
+        getter_dict = PeweeGetterDict
 
 
 class UserBase(BaseModel):
@@ -58,4 +58,4 @@ class User(UserBase):
 
     class Config:
         orm_mode = True
-        # getter_dict = PeweeGetterDict
+        getter_dict = PeweeGetterDict

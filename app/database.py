@@ -1,5 +1,4 @@
 import peewee
-from contextvars import ContextVar
 
 DB_NAME = "receipts_book.db"
 

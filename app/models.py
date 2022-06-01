@@ -1,6 +1,6 @@
 import peewee
 
-from database import db
+from app.database import db
 
 
 class User(peewee.Model):

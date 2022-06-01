@@ -5,10 +5,7 @@ from fastapi_jwt_auth import AuthJWT
 from fastapi_jwt_auth.exceptions import AuthJWTException
 from starlette.responses import JSONResponse
 
-import crud
-import database
-import models
-import schemas
+from app import crud, database, models, schemas
 
 database.db.connect()
 database.db.create_tables([models.User, models.Receipt])
